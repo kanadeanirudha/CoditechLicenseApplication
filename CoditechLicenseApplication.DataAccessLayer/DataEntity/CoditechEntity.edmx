@@ -5,18 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Coditech.EntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ProductMaster">
+        <EntityType Name="ApplicationLicenseDetails">
           <Key>
-            <PropertyRef Name="ProductMasterId" />
+            <PropertyRef Name="ApplicationLicenseId" />
           </Key>
-          <Property Name="ProductMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductName" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="ProductUniqueCode" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="FileName" Type="varchar" MaxLength="500" />
+          <Property Name="ApplicationLicenseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="LicenseType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DomainName" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="APIKey" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ValidFromDate" Type="date" Nullable="false" />
+          <Property Name="ValidUptoDate" Type="date" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
           <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedBy" Type="bigint" />
           <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="UserMaster">
@@ -38,7 +41,7 @@
           <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CoditechEntityModelStoreContainer">
-          <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationLicenseDetails" EntityType="Self.ApplicationLicenseDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -46,21 +49,24 @@
     <edmx:ConceptualModels>
       <Schema Namespace="Coditech.EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="RARIndiaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ProductMasters" EntityType="Coditech.EntityModel.ProductMaster" />
+          <EntitySet Name="ApplicationLicenseDetails" EntityType="Coditech.EntityModel.ApplicationLicenseDetail" />
           <EntitySet Name="UserMasters" EntityType="Coditech.EntityModel.UserMaster" />
         </EntityContainer>
-        <EntityType Name="ProductMaster">
+        <EntityType Name="ApplicationLicenseDetail">
           <Key>
-            <PropertyRef Name="ProductMasterId" />
+            <PropertyRef Name="ApplicationLicenseId" />
           </Key>
-          <Property Name="ProductMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ProductUniqueCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicationLicenseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DomainName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="APIKey" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ValidFromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ValidUptoDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedBy" Type="Int64" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="UserMaster">
@@ -87,18 +93,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CoditechEntityModelStoreContainer" CdmEntityContainer="RARIndiaEntities">
-          <EntitySetMapping Name="ProductMasters">
-            <EntityTypeMapping TypeName="Coditech.EntityModel.ProductMaster">
-              <MappingFragment StoreEntitySet="ProductMaster">
+          <EntitySetMapping Name="ApplicationLicenseDetails">
+            <EntityTypeMapping TypeName="Coditech.EntityModel.ApplicationLicenseDetail">
+              <MappingFragment StoreEntitySet="ApplicationLicenseDetails">
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="ProductUniqueCode" ColumnName="ProductUniqueCode" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="ProductMasterId" ColumnName="ProductMasterId" />
+                <ScalarProperty Name="ValidUptoDate" ColumnName="ValidUptoDate" />
+                <ScalarProperty Name="ValidFromDate" ColumnName="ValidFromDate" />
+                <ScalarProperty Name="APIKey" ColumnName="APIKey" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="LicenseType" ColumnName="LicenseType" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ApplicationLicenseId" ColumnName="ApplicationLicenseId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

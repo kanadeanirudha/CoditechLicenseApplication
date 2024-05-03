@@ -56,9 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDataAccessLogic.cs" />
-    <Compile Include="DataAccessLayers\Implementation\ProductMasterDAL.cs" />
+    <Compile Include="DataAccessLayers\Implementation\ApplicationLicenseDetailsDAL.cs" />
     <Compile Include="Constants\StoredProcedureKeys.cs" />
     <Compile Include="DataAccessLayers\Implementation\UserMasterDAL.cs" />
+    <Compile Include="DataEntity\ApplicationLicenseDetail.cs">
+      <DependentUpon>CoditechEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataEntity\CoditechEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,9 +79,6 @@
       <DependentUpon>CoditechEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataEntity\CoditechEntities.cs" />
-    <Compile Include="DataEntity\ProductMaster.cs">
-      <DependentUpon>CoditechEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataEntity\UserMaster.cs">
       <DependentUpon>CoditechEntity.tt</DependentUpon>
     </Compile>

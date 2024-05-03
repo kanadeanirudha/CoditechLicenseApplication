@@ -291,7 +291,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\GeneralCommanDataController.cs" />
-    <Compile Include="Controllers\ProductMasterController.cs" />
+    <Compile Include="Controllers\ApplicationLicenseDetailsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\SessionTimeoutAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -301,12 +301,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\biorad-logo.svg" />
-    <Content Include="Content\Images\main-bg-v3.jpg" />
-    <Content Include="Content\Images\main-bg.png" />
-    <Content Include="Content\Images\med-main-bg.jpg" />
+    <Content Include="Content\Images\ApplicationLogo.png" />
+    <Content Include="Content\Images\main-bg-v3.png" />
     <Content Include="Content\Images\no-image.jpg" />
-    <Content Include="Content\Images\qr-code-dummy.png" />
     <Content Include="Content\style.css" />
     <Content Include="fonts\poppins\poppins-v5-latin-regular.svg" />
     <Content Include="fonts\poppins\roboto-condensed-v16-latin-regular.svg" />
@@ -363,8 +360,8 @@
     <Content Include="fonts\poppins\roboto-condensed-v16-latin-regular.woff" />
     <Content Include="fonts\poppins\roboto-condensed-v16-latin-regular.woff2" />
     <None Include="packages.config" />
-    <Content Include="Views\ProductMaster\CreateEdit.cshtml" />
-    <Content Include="Views\ProductMaster\List.cshtml" />
+    <Content Include="Views\ApplicationLicenseDetails\CreateEdit.cshtml" />
+    <Content Include="Views\ApplicationLicenseDetails\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoditechLicenseApplication.Resources\CoditechLicenseApplication.Resources.csproj">

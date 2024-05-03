@@ -198,5 +198,11 @@ namespace Coditech.Controllers
                 SelectedDepartmentID = selectedDepartmentID
             };
         }
+
+        protected bool IsLoginSessionExpired()
+        {
+            UserModel userData = CoditechSessionHelper.GetDataFromSession<UserModel>(CoditechConstant.UserDataSession);
+            return userData == null ? true : false;
+        }
     }
 }

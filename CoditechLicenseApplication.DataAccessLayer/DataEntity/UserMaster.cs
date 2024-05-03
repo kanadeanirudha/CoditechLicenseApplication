@@ -11,7 +11,7 @@ namespace Coditech.DataAccessLayer.DataEntity
 {
     using System;
 
-    public partial class UserMaster: CoditechEntityBaseModel
+    public partial class UserMaster : CoditechEntityBaseModel
     {
         public int UserMasterId { get; set; }
         public string UserType { get; set; }
