@@ -31,28 +31,28 @@
                                 <div class="mb-3">
                                     <label for="product-name" class="form-label">Client Name<span class="required">*</span> :</label>
                                     @Html.TextBoxFor(x => x.ClientName, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(x => x.ClientName, null, new { @class = "red" })
+                                    @Html.ValidationMessageFor(x => x.ClientName, null, new { @class = "red validation-message", style = "color: red;" })
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="product-name" class="form-label">License Type<span class="required">*</span> :</label>
                                     @Html.TextBoxFor(x => x.LicenseType, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(x => x.LicenseType, null, new { @class = "red" })
+                                    @Html.ValidationMessageFor(x => x.LicenseType, null, new { @class = "red validation-message", style = "color: red;" })
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="product-name" class="form-label">Valid From Date<span class="required">*</span> :</label>
-                                    @Html.TextBoxFor(x => x.ValidFromDate, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(x => x.ValidFromDate, null, new { @class = "red" })
+                                    @Html.TextBoxFor(x => x.ValidFromDate, new { @class = "form-control", @id = "valid-from-date", type = "date" })
+                                    @Html.ValidationMessageFor(x => x.ValidFromDate, null, new { @class = "red validation-message", style = "color: red;" })
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="product-name" class="form-label">Valid Upto Date<span class="required">*</span> :</label>
-                                    @Html.TextBoxFor(x => x.ValidUptoDate, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(x => x.ValidUptoDate, null, new { @class = "red" })
+                                    @Html.TextBoxFor(x => x.ValidUptoDate, new { @class = "form-control", @id = "valid-upto-date", type = "date" })
+                                    @Html.ValidationMessageFor(x => x.ValidUptoDate, null, new { @class = "red validation-message", style = "color: red;" })
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -74,3 +74,13 @@
         <div class="col-lg-1"></div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("input[type='text'], input[type='date']").on('input', function () {
+            var validationMessage = $(this).next('.validation-message');
+            validationMessage.text('');
+        });
+    });
+</script>
