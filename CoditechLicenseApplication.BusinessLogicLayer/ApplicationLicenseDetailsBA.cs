@@ -49,6 +49,7 @@ namespace Coditech.BusinessLogicLayer
             try
             {
                 applicationLicenseDetailViewModel.CreatedBy = LoginUserId();
+                applicationLicenseDetailViewModel.APIKey = Guid.NewGuid().ToString(); ;
                 ApplicationLicenseDetailsModel applicationLicenseDetailModel = _applicationLicenseDetailDAL.CreateApplicationLicenseDetail(applicationLicenseDetailViewModel.ToModel<ApplicationLicenseDetailsModel>());
                 return IsNotNull(applicationLicenseDetailModel) ? applicationLicenseDetailModel.ToViewModel<ApplicationLicenseDetailsViewModel>() : new ApplicationLicenseDetailsViewModel();
             }
@@ -70,8 +71,8 @@ namespace Coditech.BusinessLogicLayer
         }
 
         //Get ApplicationLicenseDetails by ApplicationLicenseDetails id.
-        public ApplicationLicenseDetailsViewModel GetApplicationLicenseDetails(int ApplicationLicenseDetailsId)
-            => _applicationLicenseDetailDAL.GetApplicationLicenseDetail(ApplicationLicenseDetailsId).ToViewModel<ApplicationLicenseDetailsViewModel>();
+        public ApplicationLicenseDetailsViewModel GetApplicationLicenseDetails(int applicationLicenseId)
+            => _applicationLicenseDetailDAL.GetApplicationLicenseDetail(applicationLicenseId).ToViewModel<ApplicationLicenseDetailsViewModel>();
 
         //Update ApplicationLicenseDetails.
         public ApplicationLicenseDetailsViewModel UpdateApplicationLicenseDetails(ApplicationLicenseDetailsViewModel applicationLicenseDetailViewModel)

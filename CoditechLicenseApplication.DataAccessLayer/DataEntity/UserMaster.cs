@@ -22,9 +22,9 @@ namespace Coditech.DataAccessLayer.DataEntity
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public bool IsActive { get; set; }
-        public Nullable<long> CreatedBy { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<long> ModifiedBy { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
     }
 }

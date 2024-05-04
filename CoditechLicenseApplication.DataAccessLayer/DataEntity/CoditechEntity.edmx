@@ -17,9 +17,9 @@
           <Property Name="ValidFromDate" Type="date" Nullable="false" />
           <Property Name="ValidUptoDate" Type="date" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="ModifiedBy" Type="int" />
           <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="UserMaster">
@@ -35,9 +35,9 @@
           <Property Name="MiddleName" Type="nvarchar" MaxLength="100" />
           <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedBy" Type="int" />
           <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="ModifiedBy" Type="bigint" />
+          <Property Name="ModifiedBy" Type="int" />
           <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CoditechEntityModelStoreContainer">
@@ -48,7 +48,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Coditech.EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="RARIndiaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CoditechEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ApplicationLicenseDetails" EntityType="Coditech.EntityModel.ApplicationLicenseDetail" />
           <EntitySet Name="UserMasters" EntityType="Coditech.EntityModel.UserMaster" />
         </EntityContainer>
@@ -64,9 +64,9 @@
           <Property Name="ValidFromDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ValidUptoDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedBy" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="UserMaster">
@@ -82,9 +82,9 @@
           <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedBy" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int64" />
+          <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
         </EntityType>
         </Schema>
@@ -92,7 +92,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CoditechEntityModelStoreContainer" CdmEntityContainer="RARIndiaEntities">
+        <EntityContainerMapping StorageEntityContainer="CoditechEntityModelStoreContainer" CdmEntityContainer="CoditechEntities">
           <EntitySetMapping Name="ApplicationLicenseDetails">
             <EntityTypeMapping TypeName="Coditech.EntityModel.ApplicationLicenseDetail">
               <MappingFragment StoreEntitySet="ApplicationLicenseDetails">

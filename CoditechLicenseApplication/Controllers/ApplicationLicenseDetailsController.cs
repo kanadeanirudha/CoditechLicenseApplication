@@ -59,12 +59,12 @@ namespace Coditech.Controllers
         }
 
         [HttpGet]
-        public virtual ActionResult Edit(int applicationLicenseDetailId)
+        public virtual ActionResult Edit(int applicationLicenseId)
         {
             if (IsLoginSessionExpired())
                 return RedirectToAction<UserController>(x => x.Login());
 
-            ApplicationLicenseDetailsViewModel applicationLicenseDetailViewModel = _applicationLicenseDetailBA.GetApplicationLicenseDetails(applicationLicenseDetailId);
+            ApplicationLicenseDetailsViewModel applicationLicenseDetailViewModel = _applicationLicenseDetailBA.GetApplicationLicenseDetails(applicationLicenseId);
             return ActionView(createEdit, applicationLicenseDetailViewModel);
         }
 

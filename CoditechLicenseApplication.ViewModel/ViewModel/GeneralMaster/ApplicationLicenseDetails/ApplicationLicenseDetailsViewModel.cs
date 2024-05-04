@@ -13,6 +13,7 @@ namespace Coditech.ViewModel
 
         [Required(ErrorMessage="License Type is required")]
         public string LicenseType { get; set; }
+        [Required(ErrorMessage = "Domain Name is required")]
         public string DomainName { get; set; }
         public string APIKey { get; set; }
 

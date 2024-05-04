@@ -76,7 +76,7 @@ namespace Coditech.DataAccessLayer
         public ApplicationLicenseDetailsModel GetApplicationLicenseDetail(int applicationLicenseId)
         {
             if (applicationLicenseId <= 0)
-                throw new CoditechException(ErrorCodes.IdLessThanOne, string.Format(GeneralResources.ErrorIdLessThanOne, "ApplicationLicenseDetailID"));
+                throw new CoditechException(ErrorCodes.IdLessThanOne, string.Format(GeneralResources.ErrorIdLessThanOne, "ApplicationLicenseId"));
 
             //Get the ApplicationLicenseDetail Details based on id.
             ApplicationLicenseDetail ApplicationLicenseDetailsData = _ApplicationLicenseDetailsRepository.Table.FirstOrDefault(x => x.ApplicationLicenseId == applicationLicenseId);
