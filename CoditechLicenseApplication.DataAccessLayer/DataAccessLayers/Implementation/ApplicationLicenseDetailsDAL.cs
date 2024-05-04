@@ -48,28 +48,28 @@ namespace Coditech.DataAccessLayer
         }
 
         //Create ApplicationLicenseDetail.
-        public ApplicationLicenseDetailsModel CreateApplicationLicenseDetail(ApplicationLicenseDetailsModel ApplicationLicenseDetailsModel)
+        public ApplicationLicenseDetailsModel CreateApplicationLicenseDetail(ApplicationLicenseDetailsModel applicationLicenseDetailsModel)
         {
-            if (IsNull(ApplicationLicenseDetailsModel))
+            if (IsNull(applicationLicenseDetailsModel))
                 throw new CoditechException(ErrorCodes.NullModel, GeneralResources.ModelNotNull);
 
-            if (IsClientNameAlreadyExist(ApplicationLicenseDetailsModel.ClientName))
+            if (IsClientNameAlreadyExist(applicationLicenseDetailsModel.ClientName))
             {
                 throw new CoditechException(ErrorCodes.AlreadyExist, string.Format(GeneralResources.ErrorCodeExists, "ApplicationLicenseDetail name"));
             }
 
             //Create new ApplicationLicenseDetail and return it.
-            ApplicationLicenseDetail applicationLicenseDetail = _ApplicationLicenseDetailsRepository.Insert(ApplicationLicenseDetailsModel.FromModelToEntity<ApplicationLicenseDetail>());
+            ApplicationLicenseDetail applicationLicenseDetail = _ApplicationLicenseDetailsRepository.Insert(applicationLicenseDetailsModel.FromModelToEntity<ApplicationLicenseDetail>());
             if (applicationLicenseDetail?.ApplicationLicenseId > 0)
             {
-                ApplicationLicenseDetailsModel.ApplicationLicenseId = applicationLicenseDetail.ApplicationLicenseId;
+                applicationLicenseDetailsModel.ApplicationLicenseId = applicationLicenseDetail.ApplicationLicenseId;
             }
             else
             {
-                ApplicationLicenseDetailsModel.HasError = true;
-                ApplicationLicenseDetailsModel.ErrorMessage = GeneralResources.ErrorFailedToCreate;
+                applicationLicenseDetailsModel.HasError = true;
+                applicationLicenseDetailsModel.ErrorMessage = GeneralResources.ErrorFailedToCreate;
             }
-            return ApplicationLicenseDetailsModel;
+            return applicationLicenseDetailsModel;
         }
 
         //Get ApplicationLicenseDetail by ApplicationLicenseDetail id.
@@ -127,7 +127,7 @@ namespace Coditech.DataAccessLayer
         public bool DeleteApplicationLicenseDetail(ParameterModel parameterModel)
         {
             if (IsNull(parameterModel) || string.IsNullOrEmpty(parameterModel.Ids))
-                throw new CoditechException(ErrorCodes.IdLessThanOne, string.Format(GeneralResources.ErrorIdLessThanOne, "ApplicationLicenseDetailID"));
+                throw new CoditechException(ErrorCodes.IdLessThanOne, string.Format(GeneralResources.ErrorIdLessThanOne, "ApplicationLicenseId"));
 
             CoditechViewRepository<View_ReturnBoolean> objStoredProc = new CoditechViewRepository<View_ReturnBoolean>();
             objStoredProc.SetParameter("ApplicationLicenseId", parameterModel.Ids, ParameterDirection.Input, DbType.String);

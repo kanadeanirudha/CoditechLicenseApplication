@@ -91,16 +91,16 @@ namespace Coditech.Controllers
         }
 
         //Delete Product Master.
-        public virtual ActionResult Delete(string applicationLicenseDetailIds)
+        public virtual ActionResult Delete(string applicationLicenseId)
         {
             if (IsLoginSessionExpired())
                 return RedirectToAction<UserController>(x => x.Login());
 
             string message = string.Empty;
             bool status = false;
-            if (!string.IsNullOrEmpty(applicationLicenseDetailIds))
+            if (!string.IsNullOrEmpty(applicationLicenseId))
             {
-                status = _applicationLicenseDetailBA.DeleteApplicationLicenseDetails(applicationLicenseDetailIds, out message);
+                status = _applicationLicenseDetailBA.DeleteApplicationLicenseDetails(applicationLicenseId, out message);
                 SetNotificationMessage(!status
                 ? GetErrorNotificationMessage(GeneralResources.DeleteErrorMessage)
                 : GetSuccessNotificationMessage(GeneralResources.DeleteMessage));

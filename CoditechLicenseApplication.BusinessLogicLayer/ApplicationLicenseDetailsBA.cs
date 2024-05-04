@@ -91,12 +91,12 @@ namespace Coditech.BusinessLogicLayer
         }
 
         //Delete ApplicationLicenseDetails.
-        public bool DeleteApplicationLicenseDetails(string applicationLicenseDetailsIds, out string errorMessage)
+        public bool DeleteApplicationLicenseDetails(string applicationLicenseId, out string errorMessage)
         {
             errorMessage = GeneralResources.ErrorFailedToDelete;
             try
             {
-                return _applicationLicenseDetailDAL.DeleteApplicationLicenseDetail(new ParameterModel() { Ids = applicationLicenseDetailsIds });
+                return _applicationLicenseDetailDAL.DeleteApplicationLicenseDetail(new ParameterModel() { Ids = applicationLicenseId });
             }
             catch (CoditechException ex)
             {
