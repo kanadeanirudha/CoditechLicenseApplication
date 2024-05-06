@@ -1,8 +1,6 @@
 ﻿using Coditech.Utilities.Helper;
 
-using System.Web;
 using System.Web.Optimization;
-
 namespace Coditech
 {
     public class BundleConfig
@@ -21,13 +19,13 @@ namespace Coditech
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-
+          
             BundleTable.EnableOptimizations = CoditechSetting.EnableScriptOptimizations;
         }
     }

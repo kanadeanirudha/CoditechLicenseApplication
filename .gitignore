@@ -28,3 +28,9 @@
 /CoditechLicenseApplication/.vs
 /CoditechLicenseApplication.Resources/bin/Debug
 /CoditechLicenseApplication.Resources/obj
+/CoditechLicenseApplication.BusinessLogicLayer/.vs
+/CoditechLicenseApplication.DataAccessLayer/.vs/CoditechLicenseApplication.DataAccessLayer.csproj.dtbcache.json
+/CoditechLicenseApplication.ExceptionManager/.vs/CoditechLicenseApplication.ExceptionManager.csproj.dtbcache.json
+/CoditechLicenseApplication.Resources/.vs/CoditechLicenseApplication.Resources.csproj.dtbcache.json
+/CoditechLicenseApplication.Utilities/.vs/CoditechLicenseApplication.Utilities.csproj.dtbcache.json
+/CoditechLicenseApplication.ViewModel/.vs/CoditechLicenseApplication.ViewModel.csproj.dtbcache.json
