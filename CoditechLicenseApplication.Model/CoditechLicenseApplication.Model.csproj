@@ -45,6 +45,7 @@
     <Compile Include="DataModel\CoditechEntityBaseModel.cs" />
     <Compile Include="DataModel\View_ReturnBoolean.cs" />
     <Compile Include="Model\ApplicationLicenseDetails\ApplicationLicenseDetailsListModel.cs" />
+    <Compile Include="Model\ApplicationLicenseDetails\ActiveApplicationLicenseModel.cs" />
     <Compile Include="Model\ApplicationLicenseDetails\ApplicationLicenseDetailsModel.cs" />
     <Compile Include="Model\User\UserModel.cs" />
     <Compile Include="Model\BaseListModel.cs" />

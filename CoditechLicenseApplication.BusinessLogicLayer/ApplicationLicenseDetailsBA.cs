@@ -114,5 +114,19 @@ namespace Coditech.BusinessLogicLayer
                 return false;
             }
         }
+
+        public ActiveApplicationLicenseModel IsApplicationLicenseActive(string apiKeyWithDomainName)
+        {
+            ActiveApplicationLicenseModel model = new ActiveApplicationLicenseModel();
+            if (string.IsNullOrEmpty(apiKeyWithDomainName))
+            {
+                model.ErrorMessage = "parameter is null or empty";
+            }
+            string[] apiKeyWithDomainNameArray = CoditechHelperUtility.Base64Decode(apiKeyWithDomainName)?.Split('|');
+            model = _applicationLicenseDetailDAL.IsApplicationLicenseActive(apiKeyWithDomainNameArray[0], apiKeyWithDomainNameArray[1]);
+            return model;
+        }
+
+
     }
 }
