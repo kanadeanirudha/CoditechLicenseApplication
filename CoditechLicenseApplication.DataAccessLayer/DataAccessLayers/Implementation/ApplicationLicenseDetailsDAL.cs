@@ -159,7 +159,7 @@ namespace Coditech.DataAccessLayer
             }
             else if (applicationLicenseDetail.ValidUptoDate < todayDate)
             {
-                model.ErrorMessage = "Application license date is expired.";
+                model.ErrorMessage = $"Application license date is expired on {applicationLicenseDetail.ValidUptoDate}.";
             }
             else
             {
