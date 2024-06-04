@@ -39,7 +39,18 @@
                                         <td>@item.DomainName</td>
                                         <td>@item.ValidFromDate</td>
                                         <td>@item.ValidUptoDate</td>
-                                        <td>@item.IsActive</td>
+                                        <td>
+                                            @if (@item.IsActive)
+                                            {
+                                                <img src="~/Content/Images/active.svg" style="width:20px; height:20px;" />
+                                                <span style="display:none">1</span>
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/Images/inactive.png" style="width:20px; height:20px;" />
+                                                <span style="display:none">0</span>
+                                            }
+                                        </td>
                                         <td>
                                             <div class="align-items-center d-flex justify-content-around action-container">
                                                 <a href="../@controllerName/Edit?applicationLicenseId=@item.ApplicationLicenseId" class="action-icon edit-product" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
